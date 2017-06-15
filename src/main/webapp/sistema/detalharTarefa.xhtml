@@ -1,0 +1,72 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+ 
+    <h:form>
+ 
+       <h:panelGrid id="panelGrid-campos-form" columns="2" cellpadding="10">
+	 
+			 <p:outputLabel value="Código" for="inputText-codigo"/>
+			 <p:inputText   id="inputText-codigo"
+			 		value="#{consultarTarefaController.tarefaModel.codigo}"
+			 		style="width:50px"
+			 		readonly="true"/>
+			 		
+			 <p:outputLabel value="Atribuída ao Usuário" for="inputText-atribuida"/>
+			 <p:inputText   id="inputText-atribuida"
+			 		value="#{consultarTarefaController.tarefaModel.usuarioModel.nome}"
+			 		style="width:200px"
+			 		readonly="true"/>
+			
+			 <p:outputLabel value="Descrição" for="inputTextArea-descricao"/>
+			 <p:inputTextarea id="inputTextArea-descricao" rows="5" cols="33" 
+			 		value="#{consultarTarefaController.tarefaModel.descricao}"
+					readonly="true"/>
+			
+			<p:spacer/>
+					
+			<p:commandButton value="Largar Tarefa" 
+					id="commandButton-largar"
+					icon="ui-icon-eject"
+					rendered="#{consultarTarefaController.tarefaModel.usuarioModel.codigo == usuarioController.usuarioModel.codigo}"
+				actionListener="#{consultarTarefaController.LargarTarefa}"							 
+					oncomplete="PF('dialog-modal-editar).hide();"
+					update="form-consulta"/>
+					
+			
+			 <p:outputLabel value="Resposta" for="inputTextArea-resposta"
+			 		rendered="#{consultarTarefaController.tarefaModel.usuarioModel.codigo == usuarioController.usuarioModel.codigo}"/>
+			 <p:inputTextarea id="inputTextArea-resposta" rows="5" cols="33"
+			 		rendered="#{consultarTarefaController.tarefaModel.usuarioModel.codigo == usuarioController.usuarioModel.codigo}"
+			 		value="#{consultarTarefaController.tarefaModel.resposta}"/>
+			 		<p:ajax event="keyup" update="commandButton-concluir" />
+			
+			<p:spacer/>
+			<p:commandButton value="Pegar Tarefa" 
+					id="commandButton-pegar"
+					icon="ui-icon-arrowthick-1-s"
+					rendered="#{consultarTarefaController.tarefaModel.usuarioModel == null}"
+			   actionListener="#{consultarTarefaController.PegarTarefa}"							 
+					oncomplete="PF('dialog-modal-editar).hide();"
+					update="form-consulta"/>
+			
+			
+			<p:commandButton value="Concluir Tarefa" 
+					id="commandButton-concluir"
+					icon="ui-icon-check"
+					rendered="#{consultarTarefaController.tarefaModel.usuarioModel.codigo == usuarioController.usuarioModel.codigo}"						 
+					disabled="#{empty consultarTarefaController.tarefaModel.resposta}"
+				actionListener="#{consultarTarefaController.ConcluirTarefa}"
+					oncomplete="PF('dialog-modal-editar).hide();"
+					update="form-consulta"/>
+			
+			<p:spacer/>
+			<p:messages showDetail="false" autoUpdate="true" closable="true" severity="error"/>
+ 
+     </h:panelGrid>                  
+ 
+    </h:form>
+ 
+</ui:composition>
