@@ -6,8 +6,13 @@ Um pequeno gerenciador de tarefas desenvolvido com o framework JSF que permite a
 # Requisitos da Aplicação
 
 - JDK 8
+- Eclipse
 - Mysql
-- Tomcat 8
+- Tomcat 8.5
+
+
+
+
 
 
 
