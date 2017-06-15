@@ -17,8 +17,8 @@ import javax.persistence.Table;
 
 @NamedQueries({
 	 
-	@NamedQuery(name = "TarefaEntity.findAll",query= "SELECT t FROM TarefaEntity t")
- 
+	@NamedQuery(name = "TarefaEntity.findAll",query= "SELECT t FROM TarefaEntity t"),
+	@NamedQuery(name = "TarefaEntity.GroupByConcluida",query= "SELECT t.concluida, count(t) as total FROM TarefaEntity t GROUP By t.concluida")
 })
 
 public class TarefaEntity {
