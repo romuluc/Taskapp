@@ -61,7 +61,7 @@
             				<h:outputText value="#{tarefa.usuarioModel.nome}" />
         				 </p:column>
  
-        				 <p:column headerText="" style="width:25px;">
+        				 <p:column headerText="Detalhar" style="width:25px;">
         				 
         				       <p:commandButton icon="ui-icon-zoomin" 
         				    				    title="Detalhar Tarefa"                        					 
@@ -69,10 +69,6 @@
                         					    actionListener="#{consultarTarefaController.Editar(tarefa)}"
                         					    oncomplete="PF('dialog-modal-editar').show();" 
                         					    update="dialog-modal-editar"/>        				 
- 
-        				 </p:column>
- 
-        				 <p:column headerText="" style="width:25px;">
  
         				 </p:column>
  
