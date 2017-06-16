@@ -45,8 +45,6 @@ $ sudo apt-get install -y default-jdk
 -  Instalando e configurando o Tomcat
 
 ```shell
-$ cd /tmp
-
 $ wget http://ftp.unicamp.br/pub/apache/tomcat/tomcat-8/v8.5.15/bin/apache-tomcat-8.5.15.tar.gz
 
 $ tar xvfz apache-tomcat-8.5.15.tar.gz
