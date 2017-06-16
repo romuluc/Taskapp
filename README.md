@@ -31,7 +31,7 @@ $ mysql -u root -p
 
 > create user taskuser idenfied by 'task12345';
 
-> grant all on hospedagemjsf.* to algaworks;
+> grant all on db_tarefa.* to taskuser;
 
 > quit
 ```
